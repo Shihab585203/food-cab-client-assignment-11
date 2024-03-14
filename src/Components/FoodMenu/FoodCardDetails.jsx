@@ -7,6 +7,7 @@ import {
   Typography,
   Button,
 } from "@material-tailwind/react";
+import { Link } from "react-router-dom";
 
 const FoodCardDetails = ({ foodItem }) => {
   console.log(foodItem);
@@ -22,10 +23,10 @@ const FoodCardDetails = ({ foodItem }) => {
       </CardHeader>
       <CardBody>
         <div className="mb-2 flex items-center justify-between">
-          <Typography color="blue-gray" className="font-medium text-lg">
+          <Typography color="orange-gray" className="font-medium text-lg">
             {title}
           </Typography>
-          <Typography color="blue-gray" className="font-medium text-lg">
+          <Typography color="orange-gray" className="font-medium text-lg">
             ${price}
           </Typography>
         </div>
@@ -38,13 +39,15 @@ const FoodCardDetails = ({ foodItem }) => {
         </Typography>
       </CardBody>
       <CardFooter className="pt-0">
-        <Button
-          ripple={false}
-          fullWidth={true}
-          className="bg-orange-700 text-blue-gray-900 shadow-none hover:scale-105 hover:shadow-none focus:scale-105 focus:shadow-none active:scale-100"
-        >
-          Add to Cart
-        </Button>
+        <Link to={`/services/${_id}`}>
+          <Button
+            ripple={false}
+            fullWidth={true}
+            className="bg-orange-700 text-orange-gray-900 shadow-none hover:scale-105 hover:shadow-none focus:scale-105 focus:shadow-none active:scale-100"
+          >
+            View Details
+          </Button>
+        </Link>
       </CardFooter>
     </Card>
   );

@@ -2,7 +2,7 @@ import React from "react";
 import { Typography } from "@material-tailwind/react";
 
 const Footer = () => {
-    const year = new Date();
+  const year = new Date();
   return (
     <div>
       <footer className="w-full bg-orange-600 p-8 font-bold">
@@ -13,8 +13,8 @@ const Footer = () => {
               <Typography
                 as="a"
                 href="#"
-                color="blue-gray"
-                className="font-normal transition-colors hover:text-blue-500 focus:text-blue-500"
+                color="orange-gray"
+                className="font-normal transition-colors hover:text-orange-500 focus:text-orange-500"
               >
                 About Us
               </Typography>
@@ -23,8 +23,8 @@ const Footer = () => {
               <Typography
                 as="a"
                 href="#"
-                color="blue-gray"
-                className="font-normal transition-colors hover:text-blue-500 focus:text-blue-500"
+                color="orange-gray"
+                className="font-normal transition-colors hover:text-orange-500 focus:text-orange-500"
               >
                 License
               </Typography>
@@ -33,8 +33,8 @@ const Footer = () => {
               <Typography
                 as="a"
                 href="#"
-                color="blue-gray"
-                className="font-normal transition-colors hover:text-blue-500 focus:text-blue-500"
+                color="orange-gray"
+                className="font-normal transition-colors hover:text-orange-500 focus:text-orange-500"
               >
                 Contribute
               </Typography>
@@ -43,8 +43,8 @@ const Footer = () => {
               <Typography
                 as="a"
                 href="#"
-                color="blue-gray"
-                className="font-normal transition-colors hover:text-blue-500 focus:text-blue-500"
+                color="orange-gray"
+                className="font-normal transition-colors hover:text-orange-500 focus:text-orange-500"
               >
                 Contact Us
               </Typography>
@@ -53,7 +53,7 @@ const Footer = () => {
         </div>
         <hr className="my-8 border-black" />
         <Typography className="text-center font-bold">
-          &copy; {year.getFullYear()} Material Tailwind
+          &copy; {year.getFullYear()} All right reserve by FoodCaB
         </Typography>
       </footer>
     </div>

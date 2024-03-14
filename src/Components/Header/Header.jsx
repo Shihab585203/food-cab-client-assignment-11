@@ -24,7 +24,7 @@ const Header = () => {
         as="li"
         variant="small"
         color="blue-gray"
-        className="p-1 font-normal"
+        className="p-1 font-semibold"
       >
         <Link to="/home" className="flex items-center">
           Home
@@ -34,7 +34,7 @@ const Header = () => {
         as="li"
         variant="small"
         color="blue-gray"
-        className="p-1 font-normal"
+        className="p-1 font-semibold"
       >
         <Link to="/services" className="flex items-center">
           Services
