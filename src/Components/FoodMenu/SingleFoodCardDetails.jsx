@@ -7,6 +7,8 @@ import {
   Button,
 } from "@material-tailwind/react";
 import { useLoaderData } from "react-router-dom";
+import { PhotoProvider, PhotoView } from "react-photo-view";
+import "react-photo-view/dist/react-photo-view.css";
 
 const SingleFoodCardDetails = () => {
   const { _id, title, rating, price, desc, img } = useLoaderData();
@@ -18,7 +20,11 @@ const SingleFoodCardDetails = () => {
         floated={false}
         className="m-0 w-2/5 shrink-0 rounded-r-none"
       >
-        <img src={img} className="h-full w-full object-cover" />
+        <PhotoProvider>
+          <PhotoView src={img}>
+            <img src={img} className="h-full w-full object-cover" />
+          </PhotoView>
+        </PhotoProvider>
       </CardHeader>
       <CardBody>
         <Typography variant="h6" color="gray" className="mb-4 uppercase">
@@ -31,7 +37,10 @@ const SingleFoodCardDetails = () => {
           {desc}
         </Typography>
         <a href="#" className="inline-block">
-          <Button variant="gradient" className="flex text-md items-center gap-2">
+          <Button
+            variant="gradient"
+            className="flex text-md items-center gap-2"
+          >
             ORDER NOW
             <svg
               xmlns="http://www.w3.org/2000/svg"

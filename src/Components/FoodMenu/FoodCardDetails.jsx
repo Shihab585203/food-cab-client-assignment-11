@@ -8,6 +8,9 @@ import {
   Button,
 } from "@material-tailwind/react";
 import { Link } from "react-router-dom";
+import { PhotoProvider, PhotoView } from "react-photo-view";
+import 'react-photo-view/dist/react-photo-view.css';
+
 
 const FoodCardDetails = ({ foodItem }) => {
   console.log(foodItem);
@@ -15,11 +18,15 @@ const FoodCardDetails = ({ foodItem }) => {
   return (
     <Card className="w-96">
       <CardHeader shadow={false} floated={false} className="h-96">
-        <img
-          src={img}
-          alt="card-image"
-          className="h-full w-full object-cover"
-        />
+        <PhotoProvider>
+          <PhotoView src={img}>
+            <img
+              src={img}
+              alt="card-image"
+              className="h-full w-full object-cover"
+            />
+          </PhotoView>
+        </PhotoProvider>
       </CardHeader>
       <CardBody>
         <div className="mb-2 flex items-center justify-between">
