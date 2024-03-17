@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
   Navbar,
   MobileNav,
@@ -7,8 +7,10 @@ import {
   IconButton,
 } from "@material-tailwind/react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
 
 const Header = () => {
+  const { logOutUser, user } = useContext(AuthContext);
   const [openNav, setOpenNav] = React.useState(false);
 
   React.useEffect(() => {
@@ -17,6 +19,13 @@ const Header = () => {
       () => window.innerWidth >= 960 && setOpenNav(false)
     );
   }, []);
+
+  //Log out User
+  const handleLogOut = () => {
+    logOutUser()
+      .then()
+      .catch((error) => console.log(error));
+  };
 
   const navList = (
     <ul className="mt-2 mb-4 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
@@ -53,20 +62,39 @@ const Header = () => {
           <div className="flex items-center gap-4">
             <div className="mr-4 hidden lg:block">{navList}</div>
             <div className="flex items-center gap-x-1">
-              <Button
-                variant="gradient"
-                size="sm"
-                className="hidden lg:inline-block"
-              >
-                <span>Log In</span>
-              </Button>
-              <Button
-                variant="text"
-                size="sm"
-                className="hidden lg:inline-block"
-              >
-                <span>Register</span>
-              </Button>
+              {user?.uid ? (
+                <Button
+                  onClick={handleLogOut}
+                  fullWidth
+                  variant="gradient"
+                  size="sm"
+                  className=""
+                >
+                  <span>Log Out</span>
+                </Button>
+              ) : (
+                <>
+                  <Link to="/login">
+                    <Button
+                      variant="gradient"
+                      size="sm"
+                      className="hidden lg:inline-block"
+                    >
+                      <span>Log In</span>
+                    </Button>
+                  </Link>
+
+                  <Link to="/register">
+                    <Button
+                      variant="text"
+                      size="sm"
+                      className="hidden lg:inline-block"
+                    >
+                      <span>Register</span>
+                    </Button>
+                  </Link>
+                </>
+              )}
             </div>
             <IconButton
               variant="text"
@@ -110,12 +138,31 @@ const Header = () => {
         <MobileNav open={openNav}>
           {navList}
           <div className="flex items-center gap-x-1">
-            <Button fullWidth variant="text" size="sm" className="">
-              <span>Log In</span>
-            </Button>
-            <Button fullWidth variant="gradient" size="sm" className="">
-              <span>Register</span>
-            </Button>
+            {user?.uid ? (
+              <Button
+                onClick={handleLogOut}
+                fullWidth
+                variant="gradient"
+                size="sm"
+                className=""
+              >
+                <span>Log Out</span>
+              </Button>
+            ) : (
+              <>
+                <Link to="/login">
+                  <Button fullWidth variant="text" size="sm" className="">
+                    <span>Log In</span>
+                  </Button>
+                </Link>
+
+                <Link to="/register">
+                  <Button fullWidth variant="gradient" size="sm" className="">
+                    <span>Register</span>
+                  </Button>
+                </Link>
+              </>
+            )}
           </div>
         </MobileNav>
       </Navbar>

@@ -4,6 +4,8 @@ import Home from "../../Home/Home";
 import FoodCard from "../../FoodMenu/FoodCard";
 import LimitedProducts from "../../LimitedProducts/LimitedProducts";
 import SingleFoodCardDetails from "../../FoodMenu/SingleFoodCardDetails";
+import Login from "./Login";
+import Register from "./Register";
 
 export const router = createBrowserRouter([
   {
@@ -34,6 +36,14 @@ export const router = createBrowserRouter([
         element: <SingleFoodCardDetails />,
         loader: ({ params }) =>
           fetch(`http://localhost:5000/products/${params.id}`),
+      },
+      {
+        path: "/login",
+        element: <Login />
+      },
+      {
+        path: "/register",
+        element: <Register />
       },
     ],
   },
