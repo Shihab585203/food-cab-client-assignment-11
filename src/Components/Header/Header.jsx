@@ -5,6 +5,7 @@ import {
   Typography,
   Button,
   IconButton,
+  Collapse,
 } from "@material-tailwind/react";
 import { Link, Navigate } from "react-router-dom";
 import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
@@ -58,7 +59,7 @@ const Header = () => {
     <div className="-m-6 sticky py-5 max-h-[768px] w-[calc(100%+48px)]">
       <Navbar className="sticky top-0 z-10 h-max max-w-full rounded-none px-4 py-8 lg:px-8 lg:py-8">
         <div className="flex items-center justify-between text-blue-gray-900">
-          <Typography as="a" className="mr-4 cursor-pointer py-1.5 font-medium">
+          <Typography as="" className="mr-4 cursor-pointer py-1.5 font-medium">
             <Link to="/">FoodCaB</Link>
           </Typography>
           <div className="flex items-center gap-4">
@@ -137,7 +138,7 @@ const Header = () => {
             </IconButton>
           </div>
         </div>
-        <MobileNav open={openNav}>
+        <Collapse  open={openNav}>
           {navList}
           <div className="flex items-center gap-x-1">
             {user?.uid ? (
@@ -166,7 +167,7 @@ const Header = () => {
               </>
             )}
           </div>
-        </MobileNav>
+        </Collapse >
       </Navbar>
     </div>
   );

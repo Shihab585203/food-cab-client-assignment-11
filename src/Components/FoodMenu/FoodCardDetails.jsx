@@ -9,11 +9,9 @@ import {
 } from "@material-tailwind/react";
 import { Link } from "react-router-dom";
 import { PhotoProvider, PhotoView } from "react-photo-view";
-import 'react-photo-view/dist/react-photo-view.css';
-
+import "react-photo-view/dist/react-photo-view.css";
 
 const FoodCardDetails = ({ foodItem }) => {
-  console.log(foodItem);
   const { _id, title, rating, price, desc, img } = foodItem;
   return (
     <Card className="w-96">
@@ -30,10 +28,10 @@ const FoodCardDetails = ({ foodItem }) => {
       </CardHeader>
       <CardBody>
         <div className="mb-2 flex items-center justify-between">
-          <Typography color="orange-gray" className="font-medium text-lg">
+          <Typography color="orange" className="font-medium text-lg">
             {title}
           </Typography>
-          <Typography color="orange-gray" className="font-medium text-lg">
+          <Typography color="orange" className="font-medium text-lg">
             ${price}
           </Typography>
         </div>
@@ -50,7 +48,7 @@ const FoodCardDetails = ({ foodItem }) => {
           <Button
             ripple={false}
             fullWidth={true}
-            className="bg-orange-700 text-orange-gray-900 shadow-none hover:scale-105 hover:shadow-none focus:scale-105 focus:shadow-none active:scale-100"
+            className="bg-orange-700 text-orange-900 shadow-none hover:scale-105 hover:shadow-none focus:scale-105 focus:shadow-none active:scale-100"
           >
             View Details
           </Button>

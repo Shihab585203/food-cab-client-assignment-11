@@ -53,7 +53,7 @@ const AuthProvider = ({ children }) => {
   }, []);
 
   //Pass the auth Data
-  const authInfo = { registerUser, signInUser, logOutUser, user, updateProfileData };
+  const authInfo = { registerUser, signInUser, logOutUser, user, loading, updateProfileData };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
   );

@@ -30,13 +30,13 @@ const SingleFoodCardDetails = () => {
         <Typography variant="h6" color="gray" className="mb-4 uppercase">
           startups
         </Typography>
-        <Typography variant="h4" color="orange-gray" className="mb-2">
+        <Typography variant="h4" color="orange" className="mb-2">
           {title}
         </Typography>
         <Typography color="gray" className="mb-8 font-normal">
           {desc}
         </Typography>
-        <a href="#" className="inline-block">
+        <Link to="" className="inline-block">
           <Button
             variant="gradient"
             className="flex text-md items-center gap-2"
@@ -57,7 +57,7 @@ const SingleFoodCardDetails = () => {
               />
             </svg>
           </Button>
-        </a>
+        </Link>
       </CardBody>
     </Card>
   );

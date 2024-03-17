@@ -32,7 +32,7 @@ const Login = () => {
         const user = result.user;
         console.log(user);
         form.reset();
-        navigate(from, {replace: true});
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         console.error(error);
@@ -43,15 +43,15 @@ const Login = () => {
     <div className="grid grid-cols-2 my-28 gap-2">
       <div className="ml-16">
         <Card className="w-96">
-            <CardHeader
-              variant="gradient"
-              color="gray"
-              className="mb-4 grid h-28 place-items-center"
-            >
-              <Typography variant="h3" color="white">
-                Sign In
-              </Typography>
-            </CardHeader>
+          <CardHeader
+            variant="gradient"
+            color="gray"
+            className="mb-4 grid h-28 place-items-center"
+          >
+            <Typography variant="h3" color="white">
+              Sign In
+            </Typography>
+          </CardHeader>
           <form onSubmit={handleLogin}>
             <CardBody className="flex flex-col gap-4">
               <Input name="email" type="text" label="Email" size="lg" />
@@ -63,23 +63,29 @@ const Login = () => {
               />
             </CardBody>
             <CardFooter className="pt-0">
-              <Button type="submit" variant="gradient" className="text-sm" fullWidth>
+              <Button
+                type="submit"
+                variant="gradient"
+                className="text-sm"
+                fullWidth
+              >
                 Sign In
               </Button>
             </CardFooter>
           </form>
-          <p className="font-semibold text-lg text-center text-black mt-3">
-            OR
-          </p>
-          <img
-            src="https://www.pngall.com/wp-content/uploads/5/Google-G-Logo-PNG-Image.png"
-            className="w-12 mx-auto"
-            alt=""
-          />
+          <div className="text-center">
+            <span className="font-semibold text-lg  text-black mt-3">
+              OR
+            </span>
+            <img
+              src="https://www.pngall.com/wp-content/uploads/5/Google-G-Logo-PNG-Image.png"
+              className="w-12 mx-auto"
+              alt=""
+            />
+          </div>
           <Typography variant="small" className="mt-6 mb-6 flex justify-center">
             Don&apos;t have an account?
             <Typography
-              as="a"
               variant="small"
               color="blue-gray"
               className="ml-1 font-bold"

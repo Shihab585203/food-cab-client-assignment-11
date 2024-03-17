@@ -23,11 +23,11 @@ const Register = () => {
     const email = form.email.value;
     const password = form.password.value;
 
-    registerUser( email, password)
+    registerUser( fullName, email, password)
       .then((result) => {
         const user = result.user;
-        handleUpdateUser(fullName);
         console.log(user);
+        handleUpdateUser(fullName);
         form.reset();
       })
       .catch((error) => {
@@ -85,7 +85,7 @@ const Register = () => {
           <Typography variant="small" className="mt-6 flex justify-center">
             Already have an account?
             <Typography
-              as="a"
+              as=""
               variant="small"
               color="blue-gray"
               className="ml-1 mb-6 font-bold"
