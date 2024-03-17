@@ -11,11 +11,15 @@ import {
 } from "@material-tailwind/react";
 import Lottie from "lottie-react";
 import LoginAnimation from "../../../AnimationData/login-animation.json";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../Contexts/AuthProvider/AuthProvider";
 
 const Login = () => {
   const { signInUser } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const from = location.state?.from?.pathname || "/";
 
   const handleLogin = (event) => {
     event.preventDefault();
@@ -28,6 +32,7 @@ const Login = () => {
         const user = result.user;
         console.log(user);
         form.reset();
+        navigate(from, {replace: true});
       })
       .catch((error) => {
         console.error(error);
@@ -75,7 +80,6 @@ const Login = () => {
             Don&apos;t have an account?
             <Typography
               as="a"
-              href="#signup"
               variant="small"
               color="blue-gray"
               className="ml-1 font-bold"

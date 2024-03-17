@@ -6,6 +6,7 @@ import LimitedProducts from "../../LimitedProducts/LimitedProducts";
 import SingleFoodCardDetails from "../../FoodMenu/SingleFoodCardDetails";
 import Login from "./Login";
 import Register from "./Register";
+import PrivateRoute from "./PrivateRoute";
 
 export const router = createBrowserRouter([
   {
@@ -29,7 +30,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "/services",
-        element: <FoodCard />,
+        element: (
+          <PrivateRoute>
+            <FoodCard />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/services/:id",
@@ -39,11 +44,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "/login",
-        element: <Login />
+        element: <Login />,
       },
       {
         path: "/register",
-        element: <Register />
+        element: <Register />,
       },
     ],
   },

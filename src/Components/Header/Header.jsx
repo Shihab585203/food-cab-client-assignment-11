@@ -6,7 +6,7 @@ import {
   Button,
   IconButton,
 } from "@material-tailwind/react";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
 
 const Header = () => {
@@ -22,7 +22,9 @@ const Header = () => {
 
   //Log out User
   const handleLogOut = () => {
-    logOutUser()
+    logOutUser(() => {
+      Navigate("/");
+    })
       .then()
       .catch((error) => console.log(error));
   };

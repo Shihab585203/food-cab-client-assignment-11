@@ -14,24 +14,29 @@ const auth = getAuth(app);
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   //Register User Auth
   const registerUser = ( email, password) => {
+    setLoading(false);
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
   //Login User Auth
   const signInUser = (email, password) => {
+    setLoading(false);
     return signInWithEmailAndPassword(auth, email, password);
   };
 
   //Update Profile
   const updateProfileData = (profile) => {
+    setLoading(false);
     return updateProfile(auth.currentUser, profile);
   }
 
   //signOut User Auth
   const logOutUser = () => {
+    setLoading(false);
     return signOut(auth);
   };
 
@@ -39,6 +44,7 @@ const AuthProvider = ({ children }) => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       console.log(currentUser);
       setUser(currentUser);
+      setLoading(false);
     });
 
     return () => {
