@@ -52,9 +52,11 @@ const Home = () => {
                   along vibrant streets, the options are endless.
                 </Typography>
                 <div className="flex gap-2">
-                  <Button size="lg" color="white">
-                    <Link to="/services">Explore</Link>
-                  </Button>
+                  <Link to="/services">
+                    <Button size="lg" color="white">
+                      Explore
+                    </Button>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -128,7 +130,7 @@ const Home = () => {
           </div>
         </Carousel>
       </div>
-      <LimitedProducts/>
+      <LimitedProducts />
     </>
   );
 };

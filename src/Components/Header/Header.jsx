@@ -52,6 +52,26 @@ const Header = () => {
           Services
         </Link>
       </Typography>
+      <Typography
+        as="li"
+        variant="small"
+        color="blue-gray"
+        className="p-1 font-semibold"
+      >
+        <Link to="/blog" className="flex items-center">
+          Blogs
+        </Link>
+      </Typography>
+      <Typography
+        as="li"
+        variant="small"
+        color="blue-gray"
+        className="p-1 font-semibold"
+      >
+        <Link to="/my-reviews" className="flex items-center">
+          My Reviews
+        </Link>
+      </Typography>
     </ul>
   );
 

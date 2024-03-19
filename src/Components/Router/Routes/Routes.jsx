@@ -7,6 +7,8 @@ import SingleFoodCardDetails from "../../FoodMenu/SingleFoodCardDetails";
 import Login from "./Login";
 import Register from "./Register";
 import PrivateRoute from "./PrivateRoute";
+import Blog from "../../Blog/Blog";
+import MyReviews from "../../MyReviews/MyReviews";
 
 export const router = createBrowserRouter([
   {
@@ -49,6 +51,14 @@ export const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register />,
+      },
+      {
+        path: "/blog",
+        element: <Blog />,
+      },
+      {
+        path: "/my-reviews",
+        element: <MyReviews />,
       },
     ],
   },
