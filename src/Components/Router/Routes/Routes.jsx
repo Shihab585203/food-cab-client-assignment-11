@@ -9,6 +9,7 @@ import Register from "./Register";
 import PrivateRoute from "./PrivateRoute";
 import Blog from "../../Blog/Blog";
 import MyReviews from "../../MyReviews/MyReviews";
+import SingleFoodReviews from "../../FoodMenu/SingleFoodReviews";
 
 export const router = createBrowserRouter([
   {
@@ -59,6 +60,12 @@ export const router = createBrowserRouter([
       {
         path: "/my-reviews",
         element: <MyReviews />,
+      },
+      {
+        path: "/single-food-reviews",
+        element: <SingleFoodReviews />,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/products/${params.id}`)
       },
     ],
   },

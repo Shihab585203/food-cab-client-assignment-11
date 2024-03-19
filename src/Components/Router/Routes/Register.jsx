@@ -23,7 +23,7 @@ const Register = () => {
     const email = form.email.value;
     const password = form.password.value;
 
-    registerUser( fullName, email, password)
+    registerUser( email, password)
       .then((result) => {
         const user = result.user;
         console.log(user);
@@ -69,6 +69,7 @@ const Register = () => {
                 label="Password"
                 type="password"
                 size="lg"
+                
               />
             </CardBody>
             <CardFooter className="pt-0">
