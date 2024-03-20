@@ -18,25 +18,25 @@ const AuthProvider = ({ children }) => {
 
   //Register User Auth
   const registerUser = ( email, password) => {
-    setLoading(false);
+    setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
   //Login User Auth
   const signInUser = (email, password) => {
-    setLoading(false);
+    setLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
 
   //Update Profile
   const updateProfileData = (profile) => {
-    setLoading(false);
+    setLoading(true);
     return updateProfile(auth.currentUser, profile);
   }
 
   //signOut User Auth
   const logOutUser = () => {
-    setLoading(false);
+    setLoading(true);
     return signOut(auth);
   };
 
