@@ -1,5 +1,9 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
+import { Button } from "@material-tailwind/react";
+import { FaEdit } from "react-icons/fa";
+import { FaTrashCan } from "react-icons/fa6";
+import { Link } from "react-router-dom";
 
 const MyReviews = () => {
   const { user } = useContext(AuthContext);
@@ -13,6 +17,24 @@ const MyReviews = () => {
         setSinglePrRev(data);
       });
   }, [user?.email]);
+
+  const handleDelete = (id) => {
+    fetch(`http://localhost:5000/reviews/${id}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.deletedCount === 1) {
+          alert("Delete Items Successfully!");
+          const remaining = singlePrRev.filter(
+            (singlePr) => singlePr._id !== id
+          );
+          setSinglePrRev(remaining);
+        }
+      });
+  };
+
   return (
     <div>
       {singlePrRev.length === 0 ? (
@@ -20,7 +42,7 @@ const MyReviews = () => {
           NO REVIEWS WERE ADDED!
         </h2>
       ) : (
-        <div className="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 w-11/12 mx-auto gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 w-11/12 mx-auto my-8 gap-8">
           {singlePrRev.map((singlePr) => (
             <div
               key={singlePr._id}
@@ -105,6 +127,26 @@ const MyReviews = () => {
                 <p class="block font-sans text-base antialiased font-light leading-relaxed text-inherit">
                   {singlePr.textarea}
                 </p>
+              </div>
+              <div className="flex justify-end">
+                <Link to={`/edit-review/${singlePr._id}`}>
+                  <Button variant="gradient" size="md" className="">
+                    <span>
+                      <FaEdit />
+                    </span>
+                  </Button>
+                </Link>
+
+                <Button
+                  onClick={() => handleDelete(singlePr._id)}
+                  variant="gradient"
+                  size="md"
+                  className="ml-3"
+                >
+                  <span>
+                    <FaTrashCan />
+                  </span>
+                </Button>
               </div>
             </div>
           ))}

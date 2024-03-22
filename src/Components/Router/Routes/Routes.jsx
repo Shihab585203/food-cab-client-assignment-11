@@ -10,6 +10,7 @@ import PrivateRoute from "./PrivateRoute";
 import Blog from "../../Blog/Blog";
 import MyReviews from "../../MyReviews/MyReviews";
 import SingleFoodReviews from "../../FoodMenu/SingleFoodReviews";
+import EditReview from "../../MyReviews/EditReview";
 
 export const router = createBrowserRouter([
   {
@@ -59,13 +60,22 @@ export const router = createBrowserRouter([
       },
       {
         path: "/my-reviews",
-        element: <MyReviews />,
+        element: (
+          <PrivateRoute>
+            <MyReviews />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/single-food-reviews",
         element: <SingleFoodReviews />,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/products/${params.id}`)
+          fetch(`http://localhost:5000/products/${params.id}`),
+      },
+      {
+        path: "/edit-review/:id",
+        element: <EditReview />,
+        loader: ({ params }) => fetch(`http://localhost:5000/reviews/${params.id}`)
       },
     ],
   },
