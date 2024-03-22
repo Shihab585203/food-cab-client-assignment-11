@@ -48,8 +48,8 @@ const Header = () => {
         color="blue-gray"
         className="p-1 font-semibold"
       >
-        <Link to="/services" className="flex items-center">
-          Services
+        <Link to="/menus" className="flex items-center">
+          Food Menu
         </Link>
       </Typography>
       <Typography
@@ -62,16 +62,32 @@ const Header = () => {
           Blogs
         </Link>
       </Typography>
-      <Typography
-        as="li"
-        variant="small"
-        color="blue-gray"
-        className="p-1 font-semibold"
-      >
-        <Link to="/my-reviews" className="flex items-center">
-          My Reviews
-        </Link>
-      </Typography>
+      {user?.uid ? (
+        <>
+          <Typography
+            as="li"
+            variant="small"
+            color="blue-gray"
+            className="p-1 font-semibold"
+          >
+            <Link to="/add-menu" className="flex items-center">
+              Add Menu
+            </Link>
+          </Typography>
+          <Typography
+            as="li"
+            variant="small"
+            color="blue-gray"
+            className="p-1 font-semibold"
+          >
+            <Link to="/my-reviews" className="flex items-center">
+              My Reviews
+            </Link>
+          </Typography>
+        </>
+      ) : (
+        <></>
+      )}
     </ul>
   );
 
@@ -158,7 +174,7 @@ const Header = () => {
             </IconButton>
           </div>
         </div>
-        <Collapse  open={openNav}>
+        <Collapse open={openNav}>
           {navList}
           <div className="flex items-center gap-x-1">
             {user?.uid ? (
@@ -187,7 +203,7 @@ const Header = () => {
               </>
             )}
           </div>
-        </Collapse >
+        </Collapse>
       </Navbar>
     </div>
   );

@@ -9,11 +9,13 @@ import {
 } from "@material-tailwind/react";
 import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
 import { useLoaderData } from "react-router-dom";
+import toast from "react-hot-toast";
+
 
 const EditReview = () => {
   const { user } = useContext(AuthContext);
   const currentReviews = useLoaderData();
-//   const [editedReviews, setEditedReviews] = useState(currentReviews);
+  //   const [editedReviews, setEditedReviews] = useState(currentReviews);
 
   const { title, _id } = currentReviews;
 
@@ -45,6 +47,9 @@ const EditReview = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
+        if(data.modifiedCount > 0){
+          toast.success("Successfully updated");
+        }
       });
   };
   return (

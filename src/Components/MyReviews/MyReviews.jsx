@@ -19,20 +19,25 @@ const MyReviews = () => {
   }, [user?.email]);
 
   const handleDelete = (id) => {
-    fetch(`http://localhost:5000/reviews/${id}`, {
-      method: "DELETE",
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        if (data.deletedCount === 1) {
-          alert("Delete Items Successfully!");
-          const remaining = singlePrRev.filter(
-            (singlePr) => singlePr._id !== id
-          );
-          setSinglePrRev(remaining);
-        }
-      });
+    const proceed = window.confirm(
+      "Are You sure you want to delete this review?"
+    );
+    if (proceed) {
+      fetch(`http://localhost:5000/reviews/${id}`, {
+        method: "DELETE",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          if (data.deletedCount === 1) {
+            alert("Delete Items Successfully!");
+            const remaining = singlePrRev.filter(
+              (singlePr) => singlePr._id !== id
+            );
+            setSinglePrRev(remaining);
+          }
+        });
+    }
   };
 
   return (

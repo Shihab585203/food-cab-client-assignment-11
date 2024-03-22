@@ -11,6 +11,7 @@ import Blog from "../../Blog/Blog";
 import MyReviews from "../../MyReviews/MyReviews";
 import SingleFoodReviews from "../../FoodMenu/SingleFoodReviews";
 import EditReview from "../../MyReviews/EditReview";
+import AddFoodMenu from "../../AddFoodMenu/AddFoodMenu";
 
 export const router = createBrowserRouter([
   {
@@ -33,12 +34,21 @@ export const router = createBrowserRouter([
         loader: () => fetch("http://localhost:5000/limitedProducts"),
       },
       {
-        path: "/services",
+        path: "/menus",
         element: (
           <PrivateRoute>
             <FoodCard />
           </PrivateRoute>
         ),
+      },
+      {
+        path: "/add-menu",
+        element: (
+          <PrivateRoute>
+            <AddFoodMenu/>
+          </PrivateRoute>
+        )
+
       },
       {
         path: "/services/:id",

@@ -14,7 +14,7 @@ const LimitedProducts = () => {
         ))}
       </div>
       <div className="flex justify-center">
-        <Link to="/services">
+        <Link to="/menus">
           <Button variant="gradient" className="font-semibold text-md my-4">
             See All
           </Button>

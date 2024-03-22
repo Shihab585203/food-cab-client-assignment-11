@@ -122,7 +122,7 @@ const Home = () => {
                 </Typography>
                 <div className="flex gap-2">
                   <Button size="lg" color="white">
-                    <Link to="/services">Explore</Link>
+                    <Link to="/menus">Explore</Link>
                   </Button>
                 </div>
               </div>
