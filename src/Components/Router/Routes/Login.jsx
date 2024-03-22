@@ -6,16 +6,18 @@ import {
   CardFooter,
   Typography,
   Input,
-  Checkbox,
   Button,
 } from "@material-tailwind/react";
 import Lottie from "lottie-react";
 import LoginAnimation from "../../../AnimationData/login-animation.json";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../Contexts/AuthProvider/AuthProvider";
+import { GoogleAuthProvider } from "firebase/auth";
+
+const googleAuth = new GoogleAuthProvider();
 
 const Login = () => {
-  const { signInUser } = useContext(AuthContext);
+  const { signInUser, googleLogIn } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -37,6 +39,15 @@ const Login = () => {
       .catch((error) => {
         console.error(error);
       });
+  };
+
+  const handleGoogleLogIn = () => {
+    googleLogIn(googleAuth)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((error) => console.log(error));
   };
 
   return (
@@ -74,14 +85,15 @@ const Login = () => {
             </CardFooter>
           </form>
           <div className="text-center">
-            <span className="font-semibold text-lg  text-black mt-3">
-              OR
-            </span>
-            <img
-              src="https://www.pngall.com/wp-content/uploads/5/Google-G-Logo-PNG-Image.png"
-              className="w-12 mx-auto"
-              alt=""
-            />
+            <span className="font-semibold text-lg  text-black mt-3">OR</span>
+            <br />
+            <button onClick={handleGoogleLogIn}>
+              <img
+                src="https://www.pngall.com/wp-content/uploads/5/Google-G-Logo-PNG-Image.png"
+                className="w-12 mx-auto"
+                alt=""
+              />
+            </button>
           </div>
           <Typography variant="small" className="mt-6 mb-6 flex justify-center">
             Don&apos;t have an account?
