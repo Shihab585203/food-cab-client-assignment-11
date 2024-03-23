@@ -28,10 +28,10 @@ const FoodCardDetails = ({ foodItem }) => {
       </CardHeader>
       <CardBody>
         <div className="mb-2 flex items-center justify-between">
-          <Typography color="orange" className="font-medium text-lg">
+          <Typography color="orange" className="font-medium text-lg text-orange-700">
             {title}
           </Typography>
-          <Typography color="orange" className="font-medium text-lg">
+          <Typography color="" className="font-medium text-lg text-orange-700">
             ${price}
           </Typography>
         </div>

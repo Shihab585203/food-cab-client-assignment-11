@@ -7,7 +7,7 @@ const Footer = () => {
     <div>
       <footer className="w-full bg-orange-600 p-8 font-bold">
         <div className="flex flex-row flex-wrap items-center justify-center gap-y-6 gap-x-12 text-center md:justify-between">
-          <h3 className="text-xl">FoodCaB</h3>
+          <h3 className="text-2xl lobster">FoodCaB</h3>
           <ul className="flex flex-wrap items-center gap-y-2 gap-x-8">
             <li>
               <Typography                

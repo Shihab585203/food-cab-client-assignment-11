@@ -3,11 +3,12 @@ import { Carousel, Typography, Button } from "@material-tailwind/react";
 import { Link } from "react-router-dom";
 import LimitedProducts from "../LimitedProducts/LimitedProducts";
 import Explore from "../Explore/Explore";
+import ServicesSample from "../ServicesSample/ServicesSample";
 
 const Home = () => {
   return (
     <>
-      <div>
+      <div className="">
         {/* Carousel Section */}
         <Carousel
           transition={{ duration: 1.5 }}
@@ -38,14 +39,14 @@ const Home = () => {
                 <Typography
                   variant="h1"
                   color="white"
-                  className="mb-4 text-3xl md:text-4xl lg:text-5xl"
+                  className="mb-4 text-3xl md:text-4xl lg:text-5xl  rajdhani-light"
                 >
                   Best food in this City
                 </Typography>
                 <Typography
                   variant="lead"
                   color="white"
-                  className="mb-12 opacity-80"
+                  className="mb-12 opacity-80 font-semibold rajdhani-light"
                 >
                   In this city, culinary delights abound, offering a symphony of
                   flavors that tantalize taste buds and satisfy cravings. From
@@ -53,9 +54,9 @@ const Home = () => {
                   along vibrant streets, the options are endless.
                 </Typography>
                 <div className="flex gap-2">
-                  <Link to="/services">
-                    <Button size="lg" color="white">
-                      Explore
+                  <Link to="/menus">
+                    <Button size="lg" color="white" className="">
+                      <span className="">Explore</span>
                     </Button>
                   </Link>
                 </div>
@@ -73,14 +74,14 @@ const Home = () => {
                 <Typography
                   variant="h1"
                   color="white"
-                  className="mb-4 text-3xl md:text-4xl lg:text-5xl"
+                  className="mb-4 text-3xl md:text-4xl lg:text-5xl rajdhani-light"
                 >
                   The Food you want to take!
                 </Typography>
                 <Typography
                   variant="lead"
                   color="white"
-                  className="mb-12 opacity-80"
+                  className="mb-12 opacity-80 font-semibold rajdhani-light"
                 >
                   Savor the irresistible allure of the food you crave, beckoning
                   with its tantalizing aroma and mouthwatering flavors. Whether
@@ -107,14 +108,14 @@ const Home = () => {
                 <Typography
                   variant="h1"
                   color="white"
-                  className="mb-4 text-3xl md:text-4xl lg:text-5xl"
+                  className="mb-4 text-3xl md:text-4xl lg:text-5xl rajdhani-light"
                 >
-                  Grab your Favourite Food
+                  Grab your Favorite Food
                 </Typography>
                 <Typography
                   variant="lead"
                   color="white"
-                  className="mb-12 opacity-80"
+                  className="mb-12 opacity-80 font-semibold rajdhani-light"
                 >
                   Get ready to satisfy your cravings and elevate your mood as
                   you grab your favorite food. Whether it&apos;s a comforting
@@ -132,7 +133,8 @@ const Home = () => {
         </Carousel>
       </div>
       <LimitedProducts />
-      <Explore/>
+      <Explore />
+      <ServicesSample />
     </>
   );
 };

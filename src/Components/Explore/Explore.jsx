@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const Explore = () => {
   return (
-    <div>
+    <div className="my-16">
       <div className="text-center mb-16">
         <h3 className="text-2xl font-semibold mb-4 lobster">BE OUR GUEST</h3>
         <h1 className="text-4xl protest-strike">
