@@ -7,7 +7,8 @@ const Blog = () => {
       <PageTitle title="Blogs" />
       <div className="relative flex mx-auto flex-col mt-6 text-gray-700 bg-white shadow-md bg-clip-border rounded-xl w-96">
         <div className="p-6">
-          <h5 className="block mb-2 font-sans text-xl antialiased font-semibold leading-snug tracking-normal text-blue-gray-900">
+          <PageTitle title="Blogs" />
+          <h5 className="block mb-2 font-sans text-2xl antialiased font-bold leading-snug tracking-normal text-blue-gray-900 rajdhani-light">
             Difference between SQL and NoSQL
           </h5>
           <p className="block font-sans text-base antialiased font-light leading-relaxed text-inherit">
@@ -21,7 +22,7 @@ const Blog = () => {
       </div>
       <div className="relative flex mx-auto flex-col mt-6 text-gray-700 bg-white shadow-md bg-clip-border rounded-xl w-96">
         <div className="p-6">
-          <h5 className="block mb-2 font-sans text-xl antialiased font-semibold leading-snug tracking-normal text-blue-gray-900">
+          <h5 className="block mb-2 font-sans text-2xl antialiased font-bold leading-snug tracking-normal text-blue-gray-900 rajdhani-light">
             What is JWT, and how does it work?
           </h5>
           <p className="block font-sans text-base antialiased font-light leading-relaxed text-inherit">
@@ -36,7 +37,7 @@ const Blog = () => {
 
       <div className="relative flex mx-auto flex-col mt-6 text-gray-700 bg-white shadow-md bg-clip-border rounded-xl w-96">
         <div className="p-6">
-          <h5 className="block mb-2 font-sans text-xl antialiased font-semibold leading-snug tracking-normal text-blue-gray-900">
+          <h5 className="block mb-2 font-sans text-2xl antialiased font-bold leading-snug tracking-normal text-blue-gray-900 rajdhani-light">
             What is the difference between javascript and NodeJS?
           </h5>
           <p className="block font-sans text-base antialiased font-light leading-relaxed text-inherit">
@@ -50,7 +51,7 @@ const Blog = () => {
       </div>
       <div className="relative flex mx-auto flex-col mt-6 text-gray-700 bg-white shadow-md bg-clip-border rounded-xl w-96">
         <div className="p-6">
-          <h5 className="block mb-2 font-sans text-xl antialiased font-semibold leading-snug tracking-normal text-blue-gray-900">
+          <h5 className="block mb-2 font-sans text-2xl antialiased font-bold leading-snug tracking-normal text-blue-gray-900 rajdhani-light">
             What is the difference between javascript and NodeJS?
           </h5>
           <p className="block font-sans text-base antialiased font-light leading-relaxed text-inherit">

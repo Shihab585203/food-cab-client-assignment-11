@@ -1,5 +1,6 @@
 import React from "react";
 import { Typography } from "@material-tailwind/react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   const year = new Date();
@@ -10,36 +11,34 @@ const Footer = () => {
           <h3 className="text-2xl lobster">FoodCaB</h3>
           <ul className="flex flex-wrap items-center gap-y-2 gap-x-8">
             <li>
-              <Typography                
-                color="blue-gray"
-                className="font-normal transition-colors hover:text-orange-500 focus:text-orange-500"
-              >
-                About Us
-              </Typography>
+              <Link to="/menus">
+                <Typography
+                  color="blue-gray"
+                  className="font-semibold transition-colors"
+                >
+                  Food Menu
+                </Typography>
+              </Link>
             </li>
             <li>
-              <Typography                
-                color="blue-gray"
-                className="font-normal transition-colors hover:text-orange-500 focus:text-orange-500"
-              >
-                License
-              </Typography>
+              <Link to="/blogs">
+                <Typography
+                  color="blue-gray"
+                  className="font-semibold transition-colors"
+                >
+                  Blogs
+                </Typography>
+              </Link>
             </li>
             <li>
-              <Typography                
-                color="blue-gray"
-                className="font-normal transition-colors hover:text-orange-500 focus:text-orange-500"
-              >
-                Contribute
-              </Typography>
-            </li>
-            <li>
-              <Typography                
-                color="blue-gray"
-                className="font-normal transition-colors hover:text-orange-500 focus:text-orange-500"
-              >
-                Contact Us
-              </Typography>
+              <Link to="/login">
+                <Typography
+                  color="blue-gray"
+                  className="font-semibold transition-colors"
+                >
+                  Login
+                </Typography>
+              </Link>
             </li>
           </ul>
         </div>
