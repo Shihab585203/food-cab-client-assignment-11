@@ -48,7 +48,7 @@ const FoodCardDetails = ({ foodItem }) => {
           <Button
             ripple={false}
             fullWidth={true}
-            className="bg-orange-700 text-orange-900 shadow-none hover:scale-105 hover:shadow-none focus:scale-105 focus:shadow-none active:scale-100"
+            className="bg-orange-700 text-blue-gray-900 text-sm shadow-none hover:scale-105 hover:shadow-none focus:scale-105 focus:shadow-none active:scale-100"
           >
             View Details
           </Button>

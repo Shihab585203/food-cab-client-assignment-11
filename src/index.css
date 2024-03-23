@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.lobster {
+  font-family: "Lobster", sans-serif;
+}
+
+.protest-strike {
+  font-family: "Protest Strike", sans-serif;
+}

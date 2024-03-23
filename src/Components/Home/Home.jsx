@@ -2,6 +2,7 @@ import React from "react";
 import { Carousel, Typography, Button } from "@material-tailwind/react";
 import { Link } from "react-router-dom";
 import LimitedProducts from "../LimitedProducts/LimitedProducts";
+import Explore from "../Explore/Explore";
 
 const Home = () => {
   return (
@@ -131,6 +132,7 @@ const Home = () => {
         </Carousel>
       </div>
       <LimitedProducts />
+      <Explore/>
     </>
   );
 };
