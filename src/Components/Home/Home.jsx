@@ -4,10 +4,12 @@ import { Link } from "react-router-dom";
 import LimitedProducts from "../LimitedProducts/LimitedProducts";
 import Explore from "../Explore/Explore";
 import ServicesSample from "../ServicesSample/ServicesSample";
+import PageTitle from "../PageTitle";
 
 const Home = () => {
   return (
     <>
+    <PageTitle title="Home" />
       <div className="">
         {/* Carousel Section */}
         <Carousel

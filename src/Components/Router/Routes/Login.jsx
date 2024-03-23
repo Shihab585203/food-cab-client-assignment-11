@@ -13,6 +13,7 @@ import LoginAnimation from "../../../AnimationData/login-animation.json";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../Contexts/AuthProvider/AuthProvider";
 import { GoogleAuthProvider } from "firebase/auth";
+import PageTitle from "../../PageTitle";
 
 const googleAuth = new GoogleAuthProvider();
 
@@ -52,6 +53,7 @@ const Login = () => {
 
   return (
     <div className="grid grid-cols-2 my-28 gap-2">
+      <PageTitle title="Login" />
       <div className="ml-16">
         <Card className="w-96">
           <CardHeader

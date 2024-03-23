@@ -4,6 +4,7 @@ import { Button } from "@material-tailwind/react";
 import { FaEdit } from "react-icons/fa";
 import { FaTrashCan } from "react-icons/fa6";
 import { Link } from "react-router-dom";
+import PageTitle from "../PageTitle";
 
 const MyReviews = () => {
   const { user } = useContext(AuthContext);
@@ -42,6 +43,7 @@ const MyReviews = () => {
 
   return (
     <div>
+      <PageTitle title="My Reviews" />
       {singlePrRev.length === 0 ? (
         <h2 className="flex justify-center items-center py-20 text-3xl font-medium">
           NO REVIEWS WERE ADDED!

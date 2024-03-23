@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import FoodCardDetails from "./FoodCardDetails";
+import PageTitle from "../PageTitle";
 
 const FoodCard = () => {
   // const foodItems = useLoaderData();
@@ -16,6 +17,7 @@ const FoodCard = () => {
 
   return (
     <div className="my-8">
+      <PageTitle title="Menu Items" />
       <h1 className="text-6xl font-semibold text-center">Our Food Menu</h1>
       <div className="grid grid-cols-3 gap-4">
         {foodItems.map((foodItem) => (

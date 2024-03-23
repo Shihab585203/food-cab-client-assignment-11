@@ -8,48 +8,51 @@ import {
 } from "@material-tailwind/react";
 import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
 import toast from "react-hot-toast";
+import PageTitle from "../PageTitle";
 
 const AddFoodMenu = () => {
+  const handleAddMenu = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const title = form.title.value;
+    const thumbImg = form.thumbImg.value;
+    const price = form.price.value;
+    const rating = form.rating.value;
+    const desc = form.desc.value;
 
-    const handleAddMenu = (event) => {
-        event.preventDefault();
-        const form = event.target;
-        const title = form.title.value;
-        const thumbImg = form.thumbImg.value;
-        const price = form.price.value;
-        const rating = form.rating.value;
-        const desc = form.desc.value;
+    const foodItem = {
+      title,
+      img: thumbImg,
+      price,
+      rating,
+      desc,
+    };
 
-        const foodItem = {
-            title,
-            img: thumbImg,
-            price,
-            rating,
-            desc,
-        }
-
-        fetch("http://localhost:5000/products", {
-            method: "POST",
-            headers: {
-                "content-type": "application/json"
-            },
-            body: JSON.stringify(foodItem)
-        })
-        .then(res => res.json())
-        .then(data => {
-            console.log(data);
-            toast.success("Food Item added successfully!")
-            form.reset();
-        })
-
-    } 
+    fetch("http://localhost:5000/products", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(foodItem),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        toast.success("Food Item added successfully!");
+        form.reset();
+      });
+  };
   return (
     <div className="flex justify-center items-center my-12">
+      <PageTitle title="Add Menu" />
       <Card color="transparent" shadow={false}>
         <Typography variant="h4" color="blue-gray" className="text-center">
           Add New Dishes!
         </Typography>
-        <form onSubmit={handleAddMenu} className="mt-8 mb-2 w-80 max-w-screen-lg sm:w-96">
+        <form
+          onSubmit={handleAddMenu}
+          className="mt-8 mb-2 w-80 max-w-screen-lg sm:w-96"
+        >
           <div className="mb-1 flex flex-col gap-6">
             <Typography variant="h6" color="blue-gray" className="-mb-3">
               Title

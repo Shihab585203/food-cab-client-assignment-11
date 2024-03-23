@@ -13,7 +13,7 @@ const Explore = () => {
         </h1>
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 w-11/12 mx-auto gap-6">
-        <div className="text-center py-20 my-6 border border-orange-800">
+        <div className="text-center py-20 my-6 border-4 border-orange-800">
           <PhotoProvider>
             <PhotoView src="https://i.ibb.co/gwTv3vy/diet.png">
               <img
@@ -37,7 +37,7 @@ const Explore = () => {
           </Link>
         </div>
 
-        <div className="text-center py-20 my-6 border border-orange-800">
+        <div className="text-center py-20 my-6 border-4 border-orange-800">
           <PhotoProvider>
             <PhotoView src="https://i.ibb.co/VQ2r0SJ/restaurant.png">
               <img
@@ -59,7 +59,7 @@ const Explore = () => {
             </button>
           </Link>
         </div>
-        <div className="text-center py-20 my-6 border border-orange-800">
+        <div className="text-center py-20 my-6 border-4 border-orange-800">
           <PhotoProvider>
             <PhotoView src="https://i.ibb.co/BjvkBpN/fast-food.png">
               <img

@@ -12,6 +12,7 @@ import Lottie from "lottie-react";
 import RegisterAnimation from "../../../AnimationData/register-animation.json";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../Contexts/AuthProvider/AuthProvider";
+import PageTitle from "../../PageTitle";
 
 const Register = () => {
   const { registerUser, user, updateProfileData } = useContext(AuthContext);
@@ -46,6 +47,7 @@ const Register = () => {
 
   return (
     <div className="grid grid-cols-2 my-28 gap-2">
+      <PageTitle title="Register" />
       <div>
         <Lottie animationData={RegisterAnimation} loop={true} />
       </div>

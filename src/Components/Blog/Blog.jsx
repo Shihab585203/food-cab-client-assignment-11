@@ -1,8 +1,10 @@
 import React from "react";
+import PageTitle from "../PageTitle";
 
 const Blog = () => {
   return (
     <div className="grid grid-cols-1 mx-auto lg:grid-cols-3 md:grid-cols-2 gap-4 my-8">
+      <PageTitle title="Blogs" />
       <div className="relative flex mx-auto flex-col mt-6 text-gray-700 bg-white shadow-md bg-clip-border rounded-xl w-96">
         <div className="p-6">
           <h5 className="block mb-2 font-sans text-xl antialiased font-semibold leading-snug tracking-normal text-blue-gray-900">
