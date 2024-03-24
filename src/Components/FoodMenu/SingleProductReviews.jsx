@@ -2,12 +2,21 @@ import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
 
 const SingleProductReviews = () => {
-  const { user } = useContext(AuthContext);
+  const { user, logOutUser } = useContext(AuthContext);
   const [singlePrRev, setSinglePrRev] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/reviews?email=${user?.email}`)
-      .then((res) => res.json())
+    fetch(`http://localhost:5000/reviews?email=${user?.email}`, {
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("food-cab")}`,
+      },
+    })
+      .then((res) => {
+        if(res.status === 401 || res.status === 403 ){
+          logOutUser()
+        }
+        return res.json()
+      })
       .then((data) => {
         console.log(data);
         setSinglePrRev(data);
