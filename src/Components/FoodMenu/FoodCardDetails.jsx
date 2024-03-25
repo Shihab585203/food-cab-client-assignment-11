@@ -10,9 +10,28 @@ import {
 import { Link } from "react-router-dom";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import "react-photo-view/dist/react-photo-view.css";
+import { FaStar, FaStarHalfAlt } from "react-icons/fa";
+import { AiOutlineStar } from "react-icons/ai";
 
 const FoodCardDetails = ({ foodItem }) => {
   const { _id, title, rating, price, desc, img } = foodItem;
+
+  const ratingStar = Array.from({ length: 5 }, (elem, index) => {
+    let numbers = index + 0.5;
+
+    return (
+      <span key={index}>
+        {rating >= index + 1 ? (
+          <FaStar />
+        ) : rating >= numbers ? (
+          <FaStarHalfAlt />
+        ) : (
+          <AiOutlineStar />
+        )}
+      </span>
+    );
+  });
+
   return (
     <Card className="w-96">
       <CardHeader shadow={false} floated={false} className="h-96">
@@ -28,13 +47,19 @@ const FoodCardDetails = ({ foodItem }) => {
       </CardHeader>
       <CardBody>
         <div className="mb-2 flex items-center justify-between">
-          <Typography color="orange" className="font-medium text-lg text-orange-700">
+          <Typography
+            color="orange"
+            className="font-medium text-lg text-orange-700"
+          >
             {title}
           </Typography>
-          <Typography color="" className="font-medium text-lg text-orange-700">
-            ${price}
+          <Typography color="" className="flex font-medium text-lg text-orange-700">
+            {ratingStar}
           </Typography>
         </div>
+        <Typography color="" className="font-medium text-lg mb-4">
+          Price: ${price}
+        </Typography>
         <Typography
           variant="small"
           color="gray"

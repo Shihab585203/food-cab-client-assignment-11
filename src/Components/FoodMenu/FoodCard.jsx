@@ -10,8 +10,11 @@ const FoodCard = () => {
     fetch("http://localhost:5000/products")
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
-        setFoodItems(data);
+        const sortedData = data.sort((a, b) => {
+          return a.title.localeCompare(b.title);
+        });
+        setFoodItems(sortedData);
+        console.log(sortedData);
       });
   }, []);
 
