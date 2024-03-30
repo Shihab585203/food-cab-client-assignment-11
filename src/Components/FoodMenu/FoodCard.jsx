@@ -11,7 +11,7 @@ const FoodCard = () => {
       .then((res) => res.json())
       .then((data) => {
         const sortedData = data.sort((a, b) => {
-          return a.title.localeCompare(b.title);
+          return new Date(b.timestamp) - new Date(a.timestamp);
         });
         setFoodItems(sortedData);
         console.log(sortedData);

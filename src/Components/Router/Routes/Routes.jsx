@@ -51,13 +51,13 @@ export const router = createBrowserRouter([
 
       },
       {
-        path: "/services/:id",
+        path: "/menus/:id",
         element: <SingleFoodCardDetails />,
         loader: ({ params }) =>
           fetch(`http://localhost:5000/products/${params.id}`),
       },
       {
-        path: "/login",
+      path: "/login",
         element: <Login />,
       },
       {

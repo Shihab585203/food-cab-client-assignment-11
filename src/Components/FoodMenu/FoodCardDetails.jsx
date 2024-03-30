@@ -69,7 +69,7 @@ const FoodCardDetails = ({ foodItem }) => {
         </Typography>
       </CardBody>
       <CardFooter className="pt-0">
-        <Link to={`/services/${_id}`}>
+        <Link to={`/menus/${_id}`}>
           <Button
             ripple={false}
             fullWidth={true}
