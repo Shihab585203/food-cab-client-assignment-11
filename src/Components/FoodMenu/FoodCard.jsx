@@ -14,7 +14,6 @@ const FoodCard = () => {
           return new Date(b.timestamp) - new Date(a.timestamp);
         });
         setFoodItems(sortedData);
-        console.log(sortedData);
       });
   }, []);
 

@@ -53,11 +53,11 @@ const FoodCardDetails = ({ foodItem }) => {
           >
             {title}
           </Typography>
-          <Typography color="" className="flex font-medium text-lg text-orange-700">
+          <Typography className="flex font-medium text-lg text-orange-700">
             {ratingStar}
           </Typography>
         </div>
-        <Typography color="" className="font-medium text-lg mb-4">
+        <Typography className="font-medium text-lg mb-4">
           Price: ${price}
         </Typography>
         <Typography

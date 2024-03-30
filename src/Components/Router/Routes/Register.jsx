@@ -10,9 +10,10 @@ import {
 } from "@material-tailwind/react";
 import Lottie from "lottie-react";
 import RegisterAnimation from "../../../AnimationData/register-animation.json";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { AuthContext } from "../../../Contexts/AuthProvider/AuthProvider";
 import PageTitle from "../../PageTitle";
+import toast from "react-hot-toast";
 
 const Register = () => {
   const { registerUser, user, updateProfileData } = useContext(AuthContext);
@@ -24,12 +25,14 @@ const Register = () => {
     const email = form.email.value;
     const password = form.password.value;
 
-    registerUser( email, password)
+    registerUser(email, password)
       .then((result) => {
         const user = result.user;
         console.log(user);
         handleUpdateUser(fullName);
         form.reset();
+        toast.success("User Created Successfully!")
+        Navigate("/login")
       })
       .catch((error) => {
         console.error(error);
@@ -38,12 +41,12 @@ const Register = () => {
 
   const handleUpdateUser = (fullName) => {
     const profile = {
-      displayName: fullName
-    }
+      displayName: fullName,
+    };
     updateProfileData(profile)
-    .then()
-    .catch(error => console.log(error))
-  }
+      .then()
+      .catch((error) => console.log(error));
+  };
 
   return (
     <div className="grid grid-cols-2 my-28 gap-2">
@@ -58,20 +61,32 @@ const Register = () => {
             color="gray"
             className="mb-4 grid h-28 place-items-center"
           >
-            <Typography variant="h3" color="white">
+            <div className="text-3xl text-white">
               Sign Up
-            </Typography>
+            </div>
           </CardHeader>
           <form onSubmit={handleRegister}>
             <CardBody className="flex flex-col gap-4">
-              <Input name="fullName" label="Full Name" type="text" size="lg" />
-              <Input name="email" label="Email" type="text" size="lg" />
+              <Input
+                name="fullName"
+                label="Full Name"
+                type="text"
+                size="lg"
+                required
+              />
+              <Input
+                name="email"
+                label="Email"
+                type="text"
+                size="lg"
+                required
+              />
               <Input
                 name="password"
                 label="Password"
                 type="password"
                 size="lg"
-                
+                required
               />
             </CardBody>
             <CardFooter className="pt-0">
@@ -85,17 +100,14 @@ const Register = () => {
               </Button>
             </CardFooter>
           </form>
-          <Typography variant="small" className="mt-6 flex justify-center">
+          <div className="mt-6 flex justify-center">
             Already have an account?
-            <Typography
-              as=""
-              variant="small"
-              color="blue-gray"
-              className="ml-1 mb-6 font-bold"
+            <div
+              className="ml-1 mb-6 text-blue-gray-700 font-bold"
             >
               <Link to="/login">Log In</Link>
-            </Typography>
-          </Typography>
+            </div>
+          </div>
         </Card>
       </div>
     </div>

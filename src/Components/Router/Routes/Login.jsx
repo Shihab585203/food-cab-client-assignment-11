@@ -4,7 +4,7 @@ import {
   CardHeader,
   CardBody,
   CardFooter,
-  Typography,
+  div,
   Input,
   Button,
 } from "@material-tailwind/react";
@@ -79,9 +79,9 @@ const Login = () => {
             color="gray"
             className="mb-4 grid h-28 place-items-center"
           >
-            <Typography variant="h3" color="white">
+            <div className="text-3xl text-white">
               Sign In
-            </Typography>
+            </div>
           </CardHeader>
           <form onSubmit={handleLogin}>
             <CardBody className="flex flex-col gap-4">
@@ -115,16 +115,17 @@ const Login = () => {
               />
             </button>
           </div>
-          <Typography variant="small" className="mt-6 mb-6 flex justify-center">
+          <div
+          className="mt-6 mb-6 flex justify-center"
+          >
             Don&apos;t have an account?
-            <Typography
-              variant="small"
-              color="blue-gray"
-              className="ml-1 font-bold"
+            <div
+              
+              className="ml-1 text-blue-gray-700 font-bold"
             >
               <Link to="/register">Sign up</Link>
-            </Typography>
-          </Typography>
+            </div>
+          </div>
         </Card>
       </div>
       <div>
