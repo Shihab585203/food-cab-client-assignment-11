@@ -70,68 +70,63 @@ const Login = () => {
   };
 
   return (
-    <div className="grid grid-cols-2 my-28 gap-2">
+    <>
       <PageTitle title="Login" />
-      <div className="ml-16">
-        <Card className="w-96">
-          <CardHeader
-            variant="gradient"
-            color="gray"
-            className="mb-4 grid h-28 place-items-center"
-          >
-            <div className="text-3xl text-white">
-              Sign In
-            </div>
-          </CardHeader>
-          <form onSubmit={handleLogin}>
-            <CardBody className="flex flex-col gap-4">
-              <Input name="email" type="text" label="Email" size="lg" />
-              <Input
-                name="password"
-                type="password"
-                label="Password"
-                size="lg"
-              />
-            </CardBody>
-            <CardFooter className="pt-0">
-              <Button
-                type="submit"
-                variant="gradient"
-                className="text-sm"
-                fullWidth
-              >
-                Sign In
-              </Button>
-            </CardFooter>
-          </form>
-          <div className="text-center">
-            <span className="font-semibold text-lg  text-black mt-3">OR</span>
-            <br />
-            <button onClick={handleGoogleLogIn}>
-              <img
-                src="https://www.pngall.com/wp-content/uploads/5/Google-G-Logo-PNG-Image.png"
-                className="w-12 mx-auto"
-                alt=""
-              />
-            </button>
-          </div>
-          <div
-          className="mt-6 mb-6 flex justify-center"
-          >
-            Don&apos;t have an account?
-            <div
-              
-              className="ml-1 text-blue-gray-700 font-bold"
+      <div className="grid grid-cols-2 my-28 gap-2">
+        <div className="ml-16">
+          <Card className="w-96">
+            <CardHeader
+              variant="gradient"
+              color="gray"
+              className="mb-4 grid h-28 place-items-center"
             >
-              <Link to="/register">Sign up</Link>
+              <div className="text-3xl text-white">Sign In</div>
+            </CardHeader>
+            <form onSubmit={handleLogin}>
+              <CardBody className="flex flex-col gap-4">
+                <Input name="email" type="text" label="Email" size="lg" />
+                <Input
+                  name="password"
+                  type="password"
+                  label="Password"
+                  size="lg"
+                />
+              </CardBody>
+              <CardFooter className="pt-0">
+                <Button
+                  type="submit"
+                  variant="gradient"
+                  className="text-sm"
+                  fullWidth
+                >
+                  Sign In
+                </Button>
+              </CardFooter>
+            </form>
+            <div className="text-center">
+              <span className="font-semibold text-lg  text-black mt-3">OR</span>
+              <br />
+              <button onClick={handleGoogleLogIn}>
+                <img
+                  src="https://www.pngall.com/wp-content/uploads/5/Google-G-Logo-PNG-Image.png"
+                  className="w-12 mx-auto"
+                  alt=""
+                />
+              </button>
             </div>
-          </div>
-        </Card>
+            <div className="mt-6 mb-6 flex justify-center">
+              Don&apos;t have an account?
+              <div className="ml-1 text-blue-gray-700 font-bold">
+                <Link to="/register">Sign up</Link>
+              </div>
+            </div>
+          </Card>
+        </div>
+        <div>
+          <Lottie animationData={LoginAnimation} loop={true} />
+        </div>
       </div>
-      <div>
-        <Lottie animationData={LoginAnimation} loop={true} />
-      </div>
-    </div>
+    </>
   );
 };
 

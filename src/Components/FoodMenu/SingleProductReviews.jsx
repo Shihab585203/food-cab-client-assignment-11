@@ -5,60 +5,74 @@ import StarProductReview from "./StarProductReview";
 const SingleProductReviews = () => {
   const { user, logOutUser } = useContext(AuthContext);
   const [singlePrRev, setSinglePrRev] = useState([]);
-  
-
-  // useEffect(() => {
-  //   fetch(`http://localhost:5000/reviews?email=${user?.email}`, {
-  //     headers: {
-  //       authorization: `Bearer ${localStorage.getItem("food-cab")}`,
-  //     },
-  //   })
-  //     .then((res) => {
-  //       if (res.status === 401 || res.status === 403) {
-  //         logOutUser();
-  //       }
-  //       return res.json();
-  //     })
-  //     .then((data) => {
-  //       console.log(data);
-  //       setSinglePrRev(data);
-  //     });
-  // }, [user?.email, logOutUser]);
-
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const token = localStorage.getItem("food-cab");
-        if (!token) {
-          // If token is not available, log out the user
+    const getToken = localStorage.getItem("food-cab");
+    console.log(getToken);
+
+    fetch(`http://localhost:5000/reviews?email=${user?.email}`, {
+      headers: {
+        authorization: `Bearer ${getToken}`,
+      },
+    })
+      .then((res) => {
+        if (res.status === 401 || res.status === 403) {
           logOutUser();
-          return;
         }
-
-        const response = await fetch(`http://localhost:5000/reviews?email=${user?.email}`, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
-
-        if (!response.ok) {
-          // Handle unauthorized or forbidden responses
-          if (response.status === 401 || response.status === 403) {
-            logOutUser();
-          }
-          throw new Error("Failed to fetch reviews");
-        }
-
-        const data = await response.json();
+        return res.json();
+      })
+      .then((data) => {
         setSinglePrRev(data);
-      } catch (error) {
-        console.error(error);
-      }
-    };
+      });
 
-    fetchData();
-  }, [user?.email, logOutUser]);
+    if (!getToken) {
+      fetch(`http://localhost:5000/reviews?email=${user?.email}`)
+        .then((res) => {
+          return res.json();
+        })
+        .then((data) => {
+          localStorage.setItem("food-cab", data.token);
+          setSinglePrRev(data);
+        });
+    }
+  }, [user?.email]);
+
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const token = localStorage.getItem("food-cab");
+  //       if (!token) {
+  //         // If token is not available, log out the user
+  //         logOutUser();
+  //         return;
+  //       }
+
+  //       if(user?.email){
+
+  //       }
+  //       const response = await fetch(`http://localhost:5000/reviews?email=${user?.email}`, {
+  //         headers: {
+  //           Authorization: `Bearer ${token}`,
+  //         },
+  //       });
+
+  //       if (!response.ok) {
+  //         // Handle unauthorized or forbidden responses
+  //         if (response.status === 401 || response.status === 403) {
+  //           logOutUser();
+  //         }
+  //         throw new Error("Failed to fetch reviews");
+  //       }
+
+  //       const data = await response.json();
+  //       setSinglePrRev(data);
+  //     } catch (error) {
+  //       console.error(error);
+  //     }
+  //   };
+
+  //   fetchData();
+  // }, [user?.email, logOutUser]);
 
   return (
     <div>
