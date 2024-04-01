@@ -30,8 +30,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/limited-products",
-        element: <LimitedProducts />,
-        loader: () => fetch("http://localhost:5000/limitedProducts"),
+        element: <LimitedProducts />
       },
       {
         path: "/menus",
