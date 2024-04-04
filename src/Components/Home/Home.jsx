@@ -11,7 +11,7 @@ const Home = () => {
     <>
     <PageTitle title="Home" />
       <div className="">
-        {/* Carousel Section */}
+        {/* Carousel Data */}
         <Carousel
           transition={{ duration: 1.5 }}
           loop={true}

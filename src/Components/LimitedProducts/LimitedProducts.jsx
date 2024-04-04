@@ -7,7 +7,7 @@ const LimitedProducts = () => {
   const [limitedFoodItems, setLimitedFoodItems] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/limitedProducts")
+    fetch("https://food-cab-server.vercel.app/limitedProducts")
       .then((res) => res.json())
       .then((data) => {
         const sortedData = data.sort((a, b) => {

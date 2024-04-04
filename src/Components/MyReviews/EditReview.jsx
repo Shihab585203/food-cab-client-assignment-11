@@ -11,14 +11,12 @@ import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
 import { useLoaderData } from "react-router-dom";
 import toast from "react-hot-toast";
 
-
 const EditReview = () => {
   const { user } = useContext(AuthContext);
-  const currentReviews = useLoaderData();
-  //   const [editedReviews, setEditedReviews] = useState(currentReviews);
-
   const { title, _id } = currentReviews;
+  const currentReviews = useLoaderData();
 
+  //POST Review Data to MongoDB
   const handleUpdateUser = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -37,7 +35,7 @@ const EditReview = () => {
       textarea,
     };
 
-    fetch(`http://localhost:5000/reviews/${currentReviews._id}`, {
+    fetch(`https://food-cab-server.vercel.app/reviews/${currentReviews._id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -47,7 +45,7 @@ const EditReview = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        if(data.modifiedCount > 0){
+        if (data.modifiedCount > 0) {
           toast.success("Successfully updated");
         }
       });

@@ -21,16 +21,18 @@ export const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
-        loader: () => fetch("http://localhost:5000/limitedProducts"),
+        loader: () =>
+          fetch("https://food-cab-server.vercel.app/limitedProducts"),
       },
       {
         path: "/home",
         element: <Home />,
-        loader: () => fetch("http://localhost:5000/limitedProducts"),
+        loader: () =>
+          fetch("https://food-cab-server.vercel.app/limitedProducts"),
       },
       {
         path: "/limited-products",
-        element: <LimitedProducts />
+        element: <LimitedProducts />,
       },
       {
         path: "/menus",
@@ -44,19 +46,18 @@ export const router = createBrowserRouter([
         path: "/add-menu",
         element: (
           <PrivateRoute>
-            <AddFoodMenu/>
+            <AddFoodMenu />
           </PrivateRoute>
-        )
-
+        ),
       },
       {
         path: "/menus/:id",
         element: <SingleFoodCardDetails />,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/products/${params.id}`),
+          fetch(`https://food-cab-server.vercel.app/products/${params.id}`),
       },
       {
-      path: "/login",
+        path: "/login",
         element: <Login />,
       },
       {
@@ -79,12 +80,13 @@ export const router = createBrowserRouter([
         path: "/single-food-reviews",
         element: <SingleFoodReviews />,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/products/${params.id}`),
+          fetch(`https://food-cab-server.vercel.app/products/${params.id}`),
       },
       {
         path: "/edit-review/:id",
         element: <EditReview />,
-        loader: ({ params }) => fetch(`http://localhost:5000/reviews/${params.id}`)
+        loader: ({ params }) =>
+          fetch(`https://food-cab-server.vercel.app/reviews/${params.id}`),
       },
     ],
   },

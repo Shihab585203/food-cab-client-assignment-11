@@ -3,11 +3,11 @@ import FoodCardDetails from "./FoodCardDetails";
 import PageTitle from "../PageTitle";
 
 const FoodCard = () => {
-  // const foodItems = useLoaderData();
   const [foodItems, setFoodItems] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/products")
+    //fetch data and sorted to show newest first data.
+    fetch("https://food-cab-server.vercel.app/products")
       .then((res) => res.json())
       .then((data) => {
         const sortedData = data.sort((a, b) => {

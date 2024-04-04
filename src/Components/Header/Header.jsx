@@ -177,6 +177,7 @@ const Header = () => {
         <Collapse open={openNav}>
           {navList}
           <div className="flex items-center gap-x-1">
+            {/* If user Login, Login and Register button will be vanish and will be displayed Log out Button */}
             {user?.uid ? (
               <Button
                 onClick={handleLogOut}

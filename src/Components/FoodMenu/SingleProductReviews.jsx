@@ -9,8 +9,8 @@ const SingleProductReviews = () => {
   useEffect(() => {
     const getToken = localStorage.getItem("food-cab");
     console.log(getToken);
-
-    fetch(`http://localhost:5000/reviews?email=${user?.email}`, {
+    //fetch data to specify user with query Email
+    fetch(`https://food-cab-server.vercel.app/reviews?email=${user?.email}`, {
       headers: {
         authorization: `Bearer ${getToken}`,
       },
@@ -23,18 +23,11 @@ const SingleProductReviews = () => {
       })
       .then((data) => {
         setSinglePrRev(data);
-      });
-
-    if (!getToken) {
-      fetch(`http://localhost:5000/reviews?email=${user?.email}`)
-        .then((res) => {
-          return res.json();
-        })
-        .then((data) => {
-          localStorage.setItem("food-cab", data.token);
+        if (!getToken) {
           setSinglePrRev(data);
-        });
-    }
+          localStorage.setItem("food-cab", getToken);
+        }
+      });
   }, [user?.email]);
 
   // useEffect(() => {
@@ -50,7 +43,7 @@ const SingleProductReviews = () => {
   //       if(user?.email){
 
   //       }
-  //       const response = await fetch(`http://localhost:5000/reviews?email=${user?.email}`, {
+  //       const response = await fetch(`https://food-cab-server.vercel.app/reviews?email=${user?.email}`, {
   //         headers: {
   //           Authorization: `Bearer ${token}`,
   //         },
